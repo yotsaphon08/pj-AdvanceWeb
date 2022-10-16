@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" *ngIf="currentUser">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a routerLink="" class="navbar-brand btn btn-dark"
+    ><i class="fa fa-home" aria-hidden="true"></i
+  ></a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a routerLink="menu" routerLinkActive="active" class="btn btn-dark"
+          >Menu</a
+        >
+      </li>
+      <li class="nav-item">
+        <a routerLink="second" routerLinkActive="active" class="btn btn-dark"
+          >2nd</a
+        >
+      </li>
+      <li class="nav-item">
+        <a routerLink="third" routerLinkActive="active" class="btn btn-dark"
+          >3rd</a
+        >
+      </li>
+    </ul>
+  </div>
+  <a routerLink="cart" class="btn btn-dark">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+    <span class="badge badge-info"></span>
+  </a>
+
+  <a class="btn btn-dark">{{n}}</a>
+
+  <a routerLinkActive="active" class="btn btn-dark" (click)="logout()"
+    >Logout</a
+  >
+</nav>

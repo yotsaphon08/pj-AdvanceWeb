@@ -1,0 +1,11 @@
+{
+    "name" : "AWESOME08 CPE",
+    "email" : "awesome08@gmail.com",
+    "password" : "123456"
+}
+
+{
+    "name" : "Butsakorn Kharom",
+    "email" : "tonphaii@gmail.com",
+    "password" : "123456"
+}

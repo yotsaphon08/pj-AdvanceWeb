@@ -1,0 +1,8 @@
+--- express-app ---
+
+npm init --yes
+npm install express
+npm install bcryptjs
+npm install mongoose
+npm install jsonwebtoken
+

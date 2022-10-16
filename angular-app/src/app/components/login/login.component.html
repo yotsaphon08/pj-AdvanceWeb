@@ -1,0 +1,121 @@
+<br>
+<br>
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header text-center text-white bg-dark">
+        <h4>Sign In</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="loginForm">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-7">
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+              />
+              <div
+                *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+                class="alert alert-danger"
+              >
+                <div *ngIf="email?.errors?.['required']">
+                  Email is required.
+                </div>
+                <div *ngIf="email?.errors?.['email']">
+                  Your email is incorrect.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-7">
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+              />
+              <div
+                *ngIf="
+                  password?.invalid && (password?.dirty || password?.touched)
+                "
+                class="alert alert-danger"
+              >
+                <div *ngIf="password?.errors?.['required']">
+                  Password is required.
+                </div>
+                <div *ngIf="password?.errors?.['minlength'] ">
+                  Passwords must be more than 6
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary" (click)="signIn()">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                Sign In
+              </button>
+              &nbsp;
+              <span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm mr-1"
+              ></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <h2>Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="signIn()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && email?.errors }"
+    />
+    <div
+      *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+      class="alert alert-danger"
+    >
+      <div *ngIf="email?.errors?.['required']">Email is required.</div>
+      <div *ngIf="email?.errors?.['email']">Your email is incorrect.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && password?.errors }"
+    />
+    <div
+      *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+      class="alert alert-danger"
+    >
+      <div *ngIf="password?.errors?.['required']">Password is required.</div>
+      <div *ngIf="password?.errors?.['minlength'] ">
+        Passwords must be more than 6
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm mr-1"
+      ></span>
+      Login
+    </button>
+  </div>
+</form> -->
