@@ -24,6 +24,10 @@ export class MenuService {
     );
   }
 
+  getSomeMenu(id: number){
+    return this.menus[id];
+  }
+
   addMenu(data: menu) {
     return this.http.post<menu>('http://localhost:3000/api/addmenu', data).pipe(
       map((data) => {
