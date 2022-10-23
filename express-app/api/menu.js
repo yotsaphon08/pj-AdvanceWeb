@@ -6,9 +6,14 @@ var Schema = require("mongoose").Schema;
 
 const menuSchema = Schema(
   {
+    id: String,
     name: String,
     price: Number,
     type: String,
+    MID: String,
+    category: String,
+    quantity: Number,
+    detail: String,
   },
   {
     collection: "menu",

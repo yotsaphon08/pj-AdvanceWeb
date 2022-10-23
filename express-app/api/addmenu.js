@@ -6,9 +6,14 @@ var Schema = require("mongoose").Schema;
 
 const menuSchema = Schema(
   {
+    id: String,
     name: String,
     price: Number,
     type: String,
+    MID: String,
+    category: String,
+    quantity: Number,
+    detail: String,
   },
   {
     collection: "menu",
@@ -29,7 +34,7 @@ const addMenu = (menuData) => {
       if (err) {
         reject(new Error("Cannot insert Menu to DB!"));
       } else {
-        resolve({ message: "Menu added successfully" });
+        resolve({ message: "Menu added successfully" , data});
       }
     });
   });
