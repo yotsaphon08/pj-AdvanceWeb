@@ -11,6 +11,7 @@ export class MenuService {
 
   menus: any;
   menu?: menuModel[];
+  submitStatus = false;
 
   getMenu() {
     return this.http.get<menu>('http://localhost:3000/api/menu').pipe(
@@ -28,11 +29,20 @@ export class MenuService {
     return this.menus[id];
   }
 
-  addMenu(data: menu) {
-    return this.http.post<menu>('http://localhost:3000/api/addmenu', data).pipe(
+  addMenu(data: any) {
+    return this.http.post<any>('http://localhost:3000/api/addmenu', data).pipe(
       map((data) => {
         return data;
       })
-    );
+    ).subscribe({
+      next: data => {
+          console.log(data)
+          this.submitStatus = true;
+      },
+      error: error => {
+          console.error('There was an error!', error);
+          this.submitStatus = false;
+      }
+  });
   }
 }
