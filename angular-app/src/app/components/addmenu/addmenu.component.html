@@ -7,91 +7,13 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-md-3">Product Type:</div>
-                <div class="col-md-9">
-                  <div class="form-group">
-                    <select class="form-control" formControlName="type">
-                      <option
-                        *ngFor="let item of menuType;"
-                        value="{{ item }}"
-                      >
-                        {{ item }}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">Product Category:</div>
-                <div class="col-md-9">
-                  <div class="form-group">
-                    <select class="form-control" formControlName="category">
-                      <option
-                        *ngFor="let item of menuCategory;"
-                        value="{{ item }}"
-                      >
-                        {{ item }}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">Product ID:</div>
-                <div class="col-md-9">
-                  <div class="form-group">
-                    <input
-                      type="number"
-                      class="form-control"
-                      formControlName="id"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">Product MID:</div>
-                <div class="col-md-9">
-                  <div class="form-group">
-                    <input
-                      type="number"
-                      class="form-control"
-                      formControlName="MID"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">Product Name:</div>
+                <div class="col-md-3">Name:</div>
                 <div class="col-md-9">
                   <div class="form-group">
                     <input
                       type="text"
                       class="form-control"
                       formControlName="name"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">Product Detail:</div>
-                <div class="col-md-9">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      formControlName="detail"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">Quantity:</div>
-                <div class="col-md-9">
-                  <div class="form-group">
-                    <input
-                      type="number"
-                      class="form-control"
-                      formControlName="quantity"
                     />
                   </div>
                 </div>
@@ -109,8 +31,100 @@
                 </div>
               </div>
               <div class="row">
+                <div class="col-md-3">Type:</div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <select class="form-control" formControlName="type">
+                      <option *ngFor="let item of menuType" value="{{ item }}">
+                        {{ item }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">MID:</div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      class="form-control"
+                      formControlName="MID"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Category:</div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <select class="form-control" formControlName="category">
+                      <option
+                        *ngFor="let item of menuCategory"
+                        value="{{ item }}"
+                      >
+                        {{ item }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Quantity:</div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="quantity"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Photo:</div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <input
+                      type="file"
+                      class="form-control-file"
+                      formControlName="file"
+                      (change)="onChangeImg($event)"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
+                  <img
+                    *ngIf="previewLoaded"
+                    class="img-thumbnail"
+                    [src]="this.menuForm.value.img"
+                    style="height: 150px"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Details:</div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="detail"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
                 <div class="col-md-2">
-                  <button type="button" class="btn btn-primary" (click)="onSubmit()">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="onSubmit()"
+                  >
                     Add
                   </button>
                 </div>
@@ -122,12 +136,13 @@
           </div>
         </form>
       </div>
+
       <div class="col-md-4">
         <div class="card">
           <div class="card-header">Display</div>
           <div class="card-body">
-            Form Value: {{ menuForm.value | json}} <br /><br />
-              Form Status: {{menuForm.status | json}}
+            Form Value: {{ this.menuForm.value | json }} <br /><br />
+            <!-- Form Status: {{ menuForm.status | json }} -->
           </div>
         </div>
       </div>

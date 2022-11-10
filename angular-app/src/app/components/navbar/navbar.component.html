@@ -21,15 +21,16 @@
         >
       </li>
       <li class="nav-item">
+        <a routerLink="second" routerLinkActive="active" class="btn btn-dark"
+          >Order</a
+        >
+      </li>
+      <li class="nav-item">
         <a routerLink="employee" routerLinkActive="active" class="btn btn-dark"
           >Employee</a
         >
       </li>
-      <li class="nav-item">
-        <a routerLink="third" routerLinkActive="active" class="btn btn-dark"
-          >3rd</a
-        >
-      </li>
+     
     </ul>
   </div>
   <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
@@ -37,11 +38,16 @@
     <span class="badge badge-info">{{getCounter()}}</span>
   </a>
 
-  <a class="btn btn-dark">{{n}}</a>
-
-  <a routerLinkActive="active" class="btn btn-dark" (click)="logout()"
-    >Logout</a
-  >
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+     {{n}}
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item">Profile</a>
+      <a class="dropdown-item" (click)="logout()">Log out</a>
+     
+    </div>
+  </div>
 </nav>
 
 
