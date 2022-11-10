@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-addmenu',
   templateUrl: './addmenu.component.html',
@@ -18,6 +19,7 @@ export class AddmenuComponent implements OnInit {
     category: new FormControl('', [Validators.required]),
     quantity: new FormControl('', [Validators.required]),
     detail: new FormControl('', [Validators.required]),
+    pic: new FormControl('', [Validators.required]),
   });
   
   menuType: string[] = ['', 'Hot','Ice','Smoothie'];
@@ -45,6 +47,26 @@ export class AddmenuComponent implements OnInit {
     }
 
     this.menuForm.reset();
+  }
+
+  onFileChange(event: any){
+    if(event.target.files.length > 0) {
+      const file = event.target.files[0];
+      var pattern = /image-*/;
+      const reader = new FileReader();
+      if (!file.type.match(pattern)) {
+        alert('invalid format');
+        this.menuForm.reset();
+      }else{
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          //console.log(reader.result)
+          this.menuForm.patchValue({
+           pic: reader.result as string,
+          });
+        };
+      }
+    }
   }
 
 }

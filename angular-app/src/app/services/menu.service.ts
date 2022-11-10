@@ -29,8 +29,8 @@ export class MenuService {
     return this.menus[id];
   }
 
-  addMenu(data: any) {
-    return this.http.post<any>('http://localhost:3000/api/addmenu', data).pipe(
+  addMenu(menus: any) {
+    return this.http.post<any>('http://localhost:3000/api/addmenu', menus).pipe(
       map((data) => {
         return data;
       })
