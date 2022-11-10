@@ -56,7 +56,9 @@ export class MenuComponent implements OnInit {
     this.menu.getSomeMenu(id).quantity -= 1;
     this.cartService.add(id);
   }
-  showDetail() {
-    //this.menu.getMenu();
+  parentData!: number;
+  onClickViewMenu(){
+    this.parentData += 1;
+
   }
 }

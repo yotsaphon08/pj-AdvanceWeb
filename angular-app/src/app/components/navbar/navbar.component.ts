@@ -37,4 +37,7 @@ export class NavbarComponent implements OnInit {
   getSumPrice(){
     return this.cartService.getSumPrice();
   }
+  onClick() {
+    this.router.navigate(['/employee']);
+  }
 }

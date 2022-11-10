@@ -2,7 +2,7 @@ const expressFunction = require("express");
 const mongoose = require("mongoose");
 var expressApp = expressFunction();
 
-const url = "mongodb://localhost:27017/cafe";
+const url = "mongodb://localhost:27017/pj";
 const config = {
   autoIndex: true,
   useNewUrlParser: true,
@@ -23,6 +23,9 @@ expressApp.use((req, res, next) => {
 });
 
 expressApp.use(expressFunction.json());
+
+expressApp.use(expressFunction.json({limit: '50mb'}));
+expressApp.use(expressFunction.urlencoded({limit: '50mb'}));
 expressApp.use((req, res, next) => {
   mongoose
     .connect(url, config)

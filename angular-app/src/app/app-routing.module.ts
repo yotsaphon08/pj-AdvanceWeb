@@ -6,13 +6,18 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddmenuComponent } from './components/addmenu/addmenu.component';
 import { EmployeeComponent } from './components/employee/employee.component';
-
+import { CartComponent } from './components/cart/cart.component';
+import { ManageComponent } from './components/manage/manage.component';
+import { OrderComponent } from './components/order/order.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'addmenu', component: AddmenuComponent },
   { path: 'employee', component: EmployeeComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'manage', component: ManageComponent },
+  { path: 'order', component: OrderComponent },
   { path: '**', redirectTo: '' },
 ];
 

@@ -14,9 +14,13 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthInterceptor } from './Auth/auth.interceptor';
 import { AddmenuComponent } from './components/addmenu/addmenu.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { ShowDetailsComponent } from './components/show-details/show-details.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ManageComponent } from './components/manage/manage.component';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, MainComponent, MenuComponent, HomeComponent, AddmenuComponent, EmployeeComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, MainComponent, MenuComponent, HomeComponent, AddmenuComponent, EmployeeComponent, ShowDetailsComponent, CartComponent, ManageComponent, OrderComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

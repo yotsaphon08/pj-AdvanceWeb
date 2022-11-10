@@ -13,13 +13,7 @@
       </div>
     </div>
   </div>
-  <a
-    routerLink="addmenu"
-    routerLinkActive="active"
-    class="btn btn-dark text-right"
-    (click)="onClick()"
-    >Add Menu</a
-  >
+ 
 </div>
 
 <br />
@@ -36,16 +30,13 @@
                   [src]="item.img"
                   class="card-img-top"
                   alt="..."
-                  style="height: auto;"
+                  style="height: auto"
                 />
                 <div class="card-body">
                   <h5 class="card-title">{{ item.name }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
                     Price : {{ item.price }} ฿
                   </h6>
-                  <p class="card-text">
-                    {{ item.detail }}
-                  </p>
 
                   <a
                     class="btn btn-primary"
@@ -53,6 +44,10 @@
                     (click)="addToCart(i)"
                     ><i class="fa fa-cart-plus" aria-hidden="true"></i> cart</a
                   >
+                  &nbsp;&nbsp; <div>
+                   
+                    <app-show-details></app-show-details>
+                  </div>
                 </div>
               </div>
             </div>
@@ -68,19 +63,12 @@
           <div *ngIf="item.type == 'Ice'">
             <div class="col-md-4">
               <div class="card" style="width: 20.5rem">
-                <img
-                [src]="item.img"
-                  class="card-img-top"
-                  alt="..."
-                />
+                <img [src]="item.img" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">{{ item.name }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
                     Price : {{ item.price }} ฿
                   </h6>
-                  <p class="card-text">
-                    {{ item.detail}}
-                  </p>
 
                   <a
                     class="btn btn-primary"
@@ -88,6 +76,10 @@
                     (click)="addToCart(i)"
                     ><i class="fa fa-cart-plus" aria-hidden="true"></i> cart</a
                   >
+                  &nbsp;&nbsp; <div>
+                 
+                    <app-show-details></app-show-details>
+                  </div>
                 </div>
               </div>
             </div>
@@ -95,8 +87,6 @@
         </div>
       </div>
     </div>
-
-   
   </div>
 
   <div *ngIf="onCheck() == 'B'">
@@ -107,19 +97,12 @@
           <div *ngIf="item.type == 'Hot' && item.category == c.value">
             <div class="col-md-4">
               <div class="card" style="width: 20.5rem">
-                <img
-                [src]="item.img"
-                  class="card-img-top"
-                  alt="..."
-                />
+                <img [src]="item.img" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">{{ item.name }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
                     Price : {{ item.price }} ฿
                   </h6>
-                  <p class="card-text">
-                    {{ item.detail}}
-                  </p>
 
                   <a
                     class="btn btn-primary"
@@ -127,6 +110,10 @@
                     (click)="addToCart(i)"
                     ><i class="fa fa-cart-plus" aria-hidden="true"></i> cart</a
                   >
+                  &nbsp;&nbsp; <div>
+                   
+                    <app-show-details></app-show-details>
+                  </div>
                 </div>
               </div>
             </div>
@@ -142,27 +129,23 @@
           <div *ngIf="item.type == 'Ice' && item.category == c.value">
             <div class="col-md-4">
               <div class="card" style="width: 20.5rem">
-                <img
-                [src]="item.img"
-                  class="card-img-top"
-                  alt="..."
-                />
+                <img [src]="item.img" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">{{ item.name }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
                     Price : {{ item.price }} ฿
                   </h6>
-                  <p class="card-text">
-                    {{ item.detail
-                    }}
-                  </p>
 
                   <a
                     class="btn btn-primary"
                     *ngIf="item.quantity != 0"
                     (click)="addToCart(i)"
                     ><i class="fa fa-cart-plus" aria-hidden="true"></i> cart</a
-                  >
+                  >&nbsp;&nbsp;
+                  <div>
+                   
+                    <app-show-details ></app-show-details>
+                  </div>
                 </div>
               </div>
             </div>
@@ -170,6 +153,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>

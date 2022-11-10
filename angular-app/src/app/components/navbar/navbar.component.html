@@ -21,15 +21,20 @@
         >
       </li>
       <li class="nav-item">
-        <a routerLink="second" routerLinkActive="active" class="btn btn-dark"
+        <a routerLink="order" routerLinkActive="active" class="btn btn-dark"
           >Order</a
         >
       </li>
       <li class="nav-item">
+        <a routerLink="manage" routerLinkActive="active" class="btn btn-dark"
+          >Management</a
+        >
+      </li>
+      <!-- <li class="nav-item">
         <a routerLink="employee" routerLinkActive="active" class="btn btn-dark"
           >Employee</a
         >
-      </li>
+      </li> -->
      
     </ul>
   </div>
@@ -44,6 +49,7 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item">Profile</a>
+      <a class="dropdown-item" (click)="onClick()">Employee</a>
       <a class="dropdown-item" (click)="logout()">Log out</a>
      
     </div>
@@ -67,6 +73,7 @@
                           <th>ID.</th>
                           <th>Name</th>
                           <th>Price</th>
+                          <th>Amount</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -74,13 +81,13 @@
                           <td scope="row">{{item.id}}</td>
                           <td>{{item.name}}</td>
                           <td>{{item.price}}</td>
+                          <td>{{item.getCounter()}</td>
                       </tr>
                   </tbody>
               </table>
 
-              <p class="text-right">
-                  <b>Subtotal: </b> {{getSumPrice()}}
-              </p>
+            
+              <app-cart *ngIf="cart"></app-cart>
           </div>
 
           <div class="modal-footer">
