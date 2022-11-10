@@ -7,6 +7,7 @@ export interface menu {
   category: string;
   quantity: number;
   detail: string;
+  img: string;
 }
 
 export type menuModel = menu[];
