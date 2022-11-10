@@ -48,7 +48,7 @@ export class AddmenuComponent implements OnInit {
 
     if (this.menuService.submitStatus) {
       alert('บันทึกสำเร็จ');
-      //this.menuForm.reset();
+      this.menuForm.reset();
     } else {
       alert('บันทึกไม่สำเร็จ');
     }

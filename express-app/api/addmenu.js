@@ -14,6 +14,7 @@ const menuSchema = Schema(
     category: String,
     quantity: Number,
     detail: String,
+    img: String,
   },
   {
     collection: "menu",
