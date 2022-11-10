@@ -13,9 +13,10 @@ import { HomeComponent } from './components/home/home.component';
 
 import { AuthInterceptor } from './Auth/auth.interceptor';
 import { AddmenuComponent } from './components/addmenu/addmenu.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, MainComponent, MenuComponent, HomeComponent, AddmenuComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, MainComponent, MenuComponent, HomeComponent, AddmenuComponent, EmployeeComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

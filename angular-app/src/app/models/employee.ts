@@ -4,3 +4,5 @@ export interface employee {
   email: string;
   token: string;
 }
+export type empModel = employee[];
+
