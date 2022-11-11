@@ -44,11 +44,31 @@ const findMenu = () => {
   });
 };
 
+const removeMenu = (mid) => {
+  return new Promise((resolve, reject) => {
+    Menu.findOneAndRemove({'MID': mid}, function(err) {
+      if (err){
+        reject(new Error("Cannot remove Menu"));
+      }else{
+        resolve("Remove Menu Successfully..");
+      }
+    })
+  })
+}
 menu.route("/menu").get(auth, async (req, res) => {
   const data = await findMenu();
   console.log(data);
   res.status(200).json(data);
 });
 
+menu.route("/deletemenu/:id").delete(auth, async (req, res) => {
+  const mid = await req.params.id;
+  removeMenu(mid).then(result => {
+    console.log(result);
+    res.status(200).json(result);
+  }).catch(err => {
+    console.log(err);
+  });
+});
 
 module.exports = menu;
