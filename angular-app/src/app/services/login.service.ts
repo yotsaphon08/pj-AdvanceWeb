@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { employee } from '../models/employee';
+import { login } from '../models/login';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  private currentUserSubject: BehaviorSubject<employee>;
-  public currentUser: Observable<employee>;
+  private currentUserSubject: BehaviorSubject<login>;
+  public currentUser: Observable<login>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<employee>(
+    this.currentUserSubject = new BehaviorSubject<login>(
       JSON.parse(localStorage.getItem('currentUser') as any)
     );
     this.currentUser = this.currentUserSubject.asObservable();
@@ -35,7 +35,7 @@ export class LoginService {
       );
   }
 
-  public get currentUserValue(): employee {
+  public get currentUserValue(): login {
     return this.currentUserSubject.value;
   }
 

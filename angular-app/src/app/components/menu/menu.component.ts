@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
     this.onLoading();
   }
 
-  c = new FormControl('', [Validators.required]);
+  c = new FormControl('All', [Validators.required]);
   check = 'A';
 
   ngOnInit(): void {}

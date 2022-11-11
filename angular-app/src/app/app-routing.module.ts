@@ -9,6 +9,8 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ManageComponent } from './components/manage/manage.component';
 import { OrderComponent } from './components/order/order.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
@@ -18,6 +20,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'manage', component: ManageComponent },
   { path: 'order', component: OrderComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: '' },
 ];
 

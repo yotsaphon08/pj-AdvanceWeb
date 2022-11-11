@@ -10,6 +10,9 @@ const employeeSchema = Schema(
     name: String,
     email: String,
     password: String,
+    EmpID: String,
+    gender: String,
+    tel: String,
   },
   {
     collection: "employee",
@@ -34,6 +37,9 @@ const insertEmployee = (dataEmployee) => {
       name: dataEmployee.name,
       email: dataEmployee.email,
       password: dataEmployee.password,
+      EmpID: dataEmployee.EmpID,
+      gender: dataEmployee.gender,
+      tel: dataEmployee.tel,
     });
 
     new_Employee.save((err, data) => {
@@ -53,6 +59,9 @@ signUp.route("/signup").post((req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: hashText,
+        EmpID: req.body.EmpID,
+        gender: req.body.gender,
+        tel: req.body.tel,
       };
       console.log(playload);
 

@@ -13,6 +13,8 @@ export class EmployeeService {
   employees: any;
   employee?: empModel[];
 
+  emp?: employee;
+
   getEmployee() {
     return this.http.get<employee>('http://localhost:3000/api/employee').pipe(
       map((data) => {
@@ -23,6 +25,33 @@ export class EmployeeService {
         return this.employees;
       })
     );
+  }
+
+  getEmployeeID(tid?: string) {
+    return this.http
+      .get<employee>('http://localhost:3000/api/employee/' + tid)
+      .pipe(
+        map((data) => {
+          if (data) {
+            this.emp = data;
+            //console.log(this.employee);
+          }
+          return this.emp;
+        })
+      );
+  }
+
+  UpdateEmployeeID(tid?: string, d?: any) {
+    return this.http
+      .put<employee>('http://localhost:3000/api/employee/' + tid, d)
+      .pipe(
+        map((data) => {
+          if (data) {
+            console.log(data);
+          }
+          return data;
+        })
+      );
   }
 
 }
