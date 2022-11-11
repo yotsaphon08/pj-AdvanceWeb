@@ -34,6 +34,10 @@ export class OrderService {
     );
   }
 
+  getSomeOrder(id: any){
+    return this.orders[id]
+  }
+
   addOrder(data: any) {
     return this.http.post<any>('http://localhost:3000/addorder/addorder', data).pipe(
       map((data) => {
@@ -51,6 +55,17 @@ export class OrderService {
           this.submitStatus = false;
       }
   });
+  }
+
+  deleteOrder(id: number) {
+    return this.http.delete('http://localhost:3000/deleteorder/deleteorder/'+id).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.error('There was an error!', error);
+      }
+    })
   }
 
 }

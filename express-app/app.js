@@ -50,6 +50,7 @@ expressApp.use("/api", require("./api/order"));
 expressApp.use("/api", require("./api/menu"));
 
 expressApp.use("/deletemenu", require("./api/menu"));
+expressApp.use("/deleteorder", require("./api/order"));
 
 
 expressApp.listen(3000, function () {

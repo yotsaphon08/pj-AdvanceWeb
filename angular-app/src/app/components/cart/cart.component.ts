@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+
+
 import { FormControl, Validators } from '@angular/forms';
+
 import { orderModel } from 'src/app/models/order';
 import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
@@ -11,7 +15,11 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  constructor(private cart: CartService, private order: OrderService) {
+
+
+
+  constructor(private cart: CartService,private order: OrderService,private router: Router) { setInterval(() => {
+
     setInterval(() => {
       this.date = new Date();
     }, 1000);
@@ -41,9 +49,9 @@ export class CartComponent implements OnInit {
   getChangePrice() {
     var m = this.money.value;
     var p = this.getSumPrice();
-
     return Number(m) - p;
   }
+
 
   onSubmit() {
     var m = this.money.value;
@@ -64,7 +72,15 @@ export class CartComponent implements OnInit {
 
     var jsonObject: any = JSON.parse(JSON.stringify(this.data));
     console.log(jsonObject);
-    this.order.addOrder(jsonObject[0]);
-    this.order.submitStatus = true;
+
+
+      this.order.addOrder(jsonObject[0]);
+      this.order.submitStatus = true;
+
+      
+ 
+    return (change = money - this.cart.getSumPrice());
+
+
   }
 }
