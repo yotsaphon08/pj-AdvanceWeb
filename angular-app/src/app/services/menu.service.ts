@@ -25,24 +25,27 @@ export class MenuService {
     );
   }
 
-  getSomeMenu(id: number){
+  getSomeMenu(id: number) {
     return this.menus[id];
   }
 
   addMenu(data: any) {
-    return this.http.post<any>('http://localhost:3000/api/addmenu', data).pipe(
-      map((data) => {
-        return data;
-      })
-    ).subscribe({
-      next: data => {
-          console.log(data)
+    return this.http
+      .post<any>('http://localhost:3000/api/addmenu', data)
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          console.log(data);
           this.submitStatus = true;
-      },
-      error: error => {
+        },
+        error: (error) => {
           console.error('There was an error!', error);
           this.submitStatus = false;
-      }
-  });
+        },
+      });
   }
 }

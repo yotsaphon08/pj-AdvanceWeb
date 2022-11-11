@@ -4,10 +4,9 @@ import { map } from 'rxjs/operators';
 import { employee, empModel } from '../models/employee';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmployeeService {
-
   constructor(private http: HttpClient) {}
 
   employees: any;
@@ -54,4 +53,28 @@ export class EmployeeService {
       );
   }
 
+  addEmployee(d: any) {
+    return this.http.post<any>('http://localhost:3000/login/signup', d).pipe(
+      map((data) => {
+        return data;
+      })
+    );
+  }
+
+  // signIn(dataLogin: any) {
+  //   return this.http
+  //     .post<any>('http://localhost:3000/login/signin', dataLogin)
+  //     .pipe(
+  //       map((data) => {
+  //         if (data && data.token) {
+  //           window.localStorage.setItem('token', data?.token);
+  //           window.localStorage.setItem(
+  //             'currentUser',
+  //             JSON.stringify(data?.result)
+  //           );
+  //         }
+  //         return data;
+  //       })
+  //     );
+  // }
 }
