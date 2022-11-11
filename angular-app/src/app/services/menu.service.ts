@@ -48,4 +48,15 @@ export class MenuService {
         },
       });
   }
+
+  deleteMenu(id: number) {
+    return this.http.delete('http://localhost:3000/api/deletemenu/'+id).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.error('There was an error!', error);
+      }
+    })
+  }
 }

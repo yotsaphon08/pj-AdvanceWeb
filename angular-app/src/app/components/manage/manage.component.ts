@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ManageComponent implements OnInit {
   ListMenu: any;
+  status?: any;
  // menuComponent !: MenuComponent
   constructor(
     private router: Router,
@@ -17,20 +18,35 @@ export class ManageComponent implements OnInit {
     
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { this.onLoading()}
 
-  deleteMenu(id: number){
-
-
+  deleteMenu(){
+    this.menu.deleteMenu(this.status)
+    
   }
+
   onClick() {
     this.router.navigate(['/addmenu']);
   }
-  getMenu(){
-   return this.menu.getMenu();
+  onLoading() {
+    try {
+      this.menu.getMenu().subscribe(
+        (data) => {
+          this.ListMenu = data;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-
+  onRowClick(row: any){
+    console.log(row.MID);
+    this.status = row.MID;
+  }
 
 
 
