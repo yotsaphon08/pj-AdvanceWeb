@@ -95,17 +95,28 @@
           <thead class="thead-inverse">
             <tr>
               <th>ID.</th>
+              <th>Photo</th>
               <th>Name</th>
+              <th>Type</th>
+              <th>Category</th>
               <th>Price</th>
-              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of cart; index as i">
-              <td scope="row">{{ item.id }}</td>
+              <td scope="row">{{ i + 1 }}</td>
+              <td>
+                <img
+                  [src]="item.img"
+                  class="img-thumbnail"
+                  alt="MenutData.img"
+                  style="width: 100px"
+                />
+              </td>
               <td>{{ item.name }}</td>
+              <td>{{ item.type }}</td>
+              <td>{{ item.category }}</td>
               <td>{{ item.price }}</td>
-              <td>{{item.getCounter()}</td>
             </tr>
           </tbody>
         </table>
