@@ -57,7 +57,7 @@ const removeMenu = (mid) => {
 }
 menu.route("/menu").get(auth, async (req, res) => {
   const data = await findMenu();
-  console.log(data);
+  //console.log(data);
   res.status(200).json(data);
 });
 

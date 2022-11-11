@@ -9,6 +9,7 @@ export class CartService {
   counter: number = 0;
   sumPrice: number = 0;
   cart: menuModel = [];
+  cartid:any = [];
 
   constructor(private menuService: MenuService) { }
 
@@ -16,6 +17,7 @@ export class CartService {
 add(id: number){
   console.log('Add product id:'+id+' to cart');
   this.cart.push(this.menuService.getSomeMenu(id))
+  this.cartid.push(this.menuService.getSomeMenu(id)._id)
   this.sumPrice += this.menuService.getSomeMenu(id).price
   this.counter = this.cart.length;
 
@@ -29,5 +31,9 @@ getSumPrice(){
 
 getCart(){
   return this.cart;
+}
+
+getCartid(){
+  return this.cartid;
 }
 }

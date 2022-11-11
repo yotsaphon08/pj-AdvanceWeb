@@ -61,4 +61,5 @@ export class NavbarComponent implements OnInit {
   getSumPrice() {
     return this.cartService.getSumPrice();
   }
+
 }
