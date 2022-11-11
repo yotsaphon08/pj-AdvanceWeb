@@ -44,8 +44,12 @@ expressApp.use("/login", require("./auth/signin"));
 expressApp.use("/api", require("./api/employee"));
 expressApp.use("/api", require("./api/menu"));
 expressApp.use("/api", require("./api/addmenu"));
+
 expressApp.use("/api", require("./api/order"));
 expressApp.use("/addorder", require("./api/order"));
+
+expressApp.use("/deletemenu", require("./api/menu"));
+
 
 expressApp.listen(3000, function () {
   console.log("Listening on port 3000");

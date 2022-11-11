@@ -19,10 +19,13 @@ export class MenuComponent implements OnInit {
     this.onLoading();
   }
 
-  c = new FormControl('', [Validators.required]);
+  c = new FormControl('All', [Validators.required]);
   check = 'A';
+  MenutData: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.MenutData = '';
+  }
 
   onLoading() {
     try {
@@ -56,9 +59,9 @@ export class MenuComponent implements OnInit {
     this.menu.getSomeMenu(id).quantity -= 1;
     this.cartService.add(id);
   }
-  parentData!: number;
-  onClickViewMenu(){
-    this.parentData += 1;
-
+  
+  onClickViewMenu(i: any) {
+    console.log(i);
+    this.MenutData = i;
   }
 }

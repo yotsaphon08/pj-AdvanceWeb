@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
+  show!: boolean;
+  signup!: string;
+
   constructor(
     private login: LoginService,
     private router: Router,
@@ -30,6 +33,8 @@ export class LoginComponent implements OnInit {
     if (this.login.currentUserValue) {
       this.router.navigate(['/']);
     }
+
+    this.show = false;
   }
 
   ngOnInit(): void {
@@ -68,5 +73,12 @@ export class LoginComponent implements OnInit {
 
   get password() {
     return this.loginForm.get('password');
+  }
+
+  onClick() {
+    this.show = !this.show;
+    if (this.show) {
+      this.signup = "signup"
+    }
   }
 }

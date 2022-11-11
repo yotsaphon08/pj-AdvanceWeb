@@ -1,12 +1,14 @@
-<br>
-<br>
+<br />
+<br />
 <div class="row justify-content-center">
   <div class="col-md-4">
     <div class="card">
       <div class="card-header text-center text-white bg-dark">
-        <h4>Sign In</h4>
+        <h4>The Little Cup</h4>
       </div>
       <div class="card-body">
+        <h4 class="text-center">Sign In</h4>
+        <br />
         <form [formGroup]="loginForm">
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">Email</label>
@@ -55,10 +57,27 @@
           <div class="row">
             <div class="col-12 text-center">
               <button type="submit" class="btn btn-primary" (click)="signIn()">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-                Sign In
+                Sign In&nbsp;
+                <i class="bi bi-box-arrow-in-right" aria-hidden="true"></i>
               </button>
               &nbsp;
+              <button
+                type="submit"
+                class="btn btn-primary bg-secondary"
+                (click)="onClick()"
+                data-toggle="modal"
+                data-target="#signup"
+              >
+                Sign Up &nbsp;<i
+                  class="bi bi-plus-square"
+                  aria-hidden="true"
+                ></i>
+              </button>
+              &nbsp;
+            </div>
+
+            <div class="col-12 text-center">
+              <br />
               <span
                 *ngIf="loading"
                 class="spinner-border spinner-border-sm mr-1"
@@ -71,7 +90,7 @@
   </div>
 </div>
 
-
+<app-signup [signup]="signup"></app-signup>
 
 <!-- <h2>Login</h2>
 <form [formGroup]="loginForm" (ngSubmit)="signIn()">

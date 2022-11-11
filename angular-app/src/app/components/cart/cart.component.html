@@ -1,11 +1,25 @@
 
 <div class="row">
-  <div class="col-md-3">Receive money:</div>
+  <div class="col-md-8">Receive money:</div>
   <div class="col-md-4">
     <div class="form-group">
       <input type="number" class="form-control" formControlName="money" />
     </div>
   </div>
+
+  <div class="col-md-8">Datetime:</div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="money"
+        value="{{ date | date }} {{ date | date: 'HH:mm' }} "
+        readonly
+      />
+    </div>
+  </div>
+
   <div class="col-md-12">
     <div class="col-md-8">
       <div class="form-group">
@@ -27,6 +41,7 @@
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-2">
     <button type="button" class="btn btn-primary" (click)="onSubmit(money)">

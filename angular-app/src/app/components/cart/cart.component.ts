@@ -1,35 +1,51 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup } from '@angular/forms';
 import { orderModel } from 'src/app/models/order';
 import {CartService} from 'src/app/services/cart.service'
 import { OrderService } from 'src/app/services/order.service';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
 
+
   constructor(private cart: CartService,private order: OrderService) { }
  
+  
+  data: orderModel = []
+
+
+  
+  date!: Date;
+  constructor(private cart: CartService) {
+    setInterval(() => {
+      this.date = new Date();
+    }, 1000);
+  }
   money!: number;
   sum = 0;
-  data: orderModel = []
-  ngOnInit(): void {
-  }
 
-  getCart(){
+
+  
+  ngOnInit(): void {}
+
+  getCart() {
     return this.cart.getCart();
   }
-  
-  getSumPrice(){
-    return this.cart.getSumPrice()
+
+  getSumPrice() {
+    return this.cart.getSumPrice();
   }
 
-  getCounter(){
+  getCounter() {
     return this.cart.getCounter();
   }
+
 
   onSubmit(money:number){
      let change = 0;
@@ -50,8 +66,8 @@ export class CartComponent implements OnInit {
       this.order.submitStatus = true;
 
 
-    return change = money - this.cart.getSumPrice();
-  }
  
+    return (change = money - this.cart.getSumPrice());
 
+  }
 }

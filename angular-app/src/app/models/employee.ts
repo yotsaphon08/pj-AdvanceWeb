@@ -1,8 +1,11 @@
 export interface employee {
-  id: string;
+  _id: string;
+  EmpID: string;
   name: string;
   email: string;
-  token: string;
+  password: string;
+  gender: string;
+  tel: string;
 }
 export type empModel = employee[];
 

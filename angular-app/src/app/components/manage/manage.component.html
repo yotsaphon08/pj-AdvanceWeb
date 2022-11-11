@@ -1,4 +1,3 @@
-<p>manage works!</p>
 <h2>Management Menu</h2>
 
 <div class="col-12 text-right">
@@ -9,7 +8,7 @@ class="btn btn-dark text-right"
 (click)="onClick()"
 >Add Menu</a
 > &nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-dark">Delete Menu</button>
+    <button type="button" (click)="deleteMenu()" class="btn btn-dark">Delete Menu</button>
 
 </div>
 <br />
@@ -28,7 +27,7 @@ class="btn btn-dark text-right"
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of ListMenu; index as i">
+        <tr *ngFor="let item of ListMenu; index as i" (click)="onRowClick(item)" [ngClass]="{'highlight': item.MID == status}">
           <td scope="row">{{ i + 1 }}</td>
           <td>{{ item.MID }}</td>
           <td>{{ item.name }}</td>
