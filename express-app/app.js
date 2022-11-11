@@ -2,7 +2,7 @@ const expressFunction = require("express");
 const mongoose = require("mongoose");
 var expressApp = expressFunction();
 
-const url = "mongodb://localhost:27017/cafe";
+const url = "mongodb://localhost:27017/pj";
 const config = {
   autoIndex: true,
   useNewUrlParser: true,
@@ -46,7 +46,8 @@ expressApp.use("/api", require("./api/menu"));
 expressApp.use("/api", require("./api/addmenu"));
 
 expressApp.use("/api", require("./api/order"));
-expressApp.use("/addorder", require("./api/order"));
+expressApp.use("/api", require("./api/order"));
+expressApp.use("/api", require("./api/menu"));
 
 expressApp.use("/deletemenu", require("./api/menu"));
 expressApp.use("/deleteorder", require("./api/order"));

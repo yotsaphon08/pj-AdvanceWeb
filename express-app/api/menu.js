@@ -28,6 +28,21 @@ try {
   Menu = mongoose.model("menu", menuSchema);
 }
 
+const updateQuantityMenu = async (id, d) => {
+  const doc = await Menu.updateMany({ _id: id }, { $inc: { quantity: d } });
+  console.log(doc);
+  return doc;
+};
+
+menu.route("/updatemenu/:id").put(auth, async (req, res) => {
+  const id = req.params.id;
+  const d = req.body.quantity;
+  //console.log(d, id);
+  const data = await updateQuantityMenu(id, d);
+  //console.log(data);
+  res.status(200).json(data);
+});
+
 const findMenu = () => {
   return new Promise((resolve, reject) => {
     Menu.find({}, (err, data) => {
@@ -44,17 +59,17 @@ const findMenu = () => {
   });
 };
 
-const removeMenu = (mid) => {
+const removeMenu = (id) => {
   return new Promise((resolve, reject) => {
-    Menu.findOneAndRemove({'MID': mid}, function(err) {
-      if (err){
+    Menu.findOneAndRemove({ _id: id }, function (err) {
+      if (err) {
         reject(new Error("Cannot remove Menu"));
-      }else{
+      } else {
         resolve("Remove Menu Successfully..");
       }
-    })
-  })
-}
+    });
+  });
+};
 menu.route("/menu").get(auth, async (req, res) => {
   const data = await findMenu();
   //console.log(data);
@@ -63,12 +78,14 @@ menu.route("/menu").get(auth, async (req, res) => {
 
 menu.route("/deletemenu/:id").delete(auth, async (req, res) => {
   const mid = await req.params.id;
-  removeMenu(mid).then(result => {
-    console.log(result);
-    res.status(200).json(result);
-  }).catch(err => {
-    console.log(err);
-  });
+  removeMenu(mid)
+    .then((result) => {
+      console.log(result);
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 module.exports = menu;

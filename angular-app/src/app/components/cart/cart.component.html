@@ -1,51 +1,42 @@
+<div class="modal-body">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">Datetime :</div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            value="{{ date | date }} {{ date | date: 'HH:mm' }} "
+            readonly
+          />
+        </div>
+      </div>
 
-<div class="row">
-  <div class="col-md-8">Receive money:</div>
-  <div class="col-md-4">
-    <div class="form-group">
-      <input type="number" class="form-control" formControlName="money" />
+      <div class="col-md-8">Receive money :</div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <input type="number" class="form-control" [formControl]="money" />
+        </div>
+      </div>
+
+      <div class="col-lg-8">Amount product :</div>
+      <div class="col-lg-4">{{ getCounter() }} glasses</div>
+      <br /><br />
+      <div class="col-lg-8">SumTotal :</div>
+      <div class="col-lg-4">{{ getSumPrice() }} ฿</div>
+      <br /><br />
+      <div class="col-lg-8">The change :</div>
+      <div class="col-lg-4">{{ getChangePrice() }} ฿</div>
+      <br /><br />
     </div>
-  </div>
 
-  <div class="col-md-8">Datetime:</div>
-  <div class="col-md-4">
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        formControlName="money"
-        value="{{ date | date }} {{ date | date: 'HH:mm' }} "
-        readonly
-      />
-    </div>
-  </div>
-
-  <div class="col-md-12">
-    <div class="col-md-8">
-      <div class="form-group">
-        SumTotal:
-        {{ getSumPrice() }}.00 bath
+    <div class="col-md-12">
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">
+          Payment
+        </button>
       </div>
     </div>
-    <div class="col-md-8">
-      <div class="form-group">
-        The change:
-        {{ getSumPrice() }}.00 bath
-      </div>
-    </div>
-    <div class="col-md-8">
-      <div class="form-group">
-        Amount product:
-        {{ getCounter() }} glasses
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-2">
-    <button type="button" class="btn btn-primary" (click)="onSubmit(money)">
-      Add
-    </button>
   </div>
 </div>

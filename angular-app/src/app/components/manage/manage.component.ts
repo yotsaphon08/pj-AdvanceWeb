@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 // import { MenuComponent } from '../menu/menu.component';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-manage',
@@ -11,18 +12,37 @@ import { Router } from '@angular/router';
 export class ManageComponent implements OnInit {
   ListMenu: any;
   status?: any;
- // menuComponent !: MenuComponent
-  constructor(
-    private router: Router,
-    private menu: MenuService,
-    
-  ) {}
+  // menuComponent !: MenuComponent
+  constructor(private router: Router, private menu: MenuService) {}
 
-  ngOnInit(): void { this.onLoading()}
+  ngOnInit(): void {
+    this.onLoading();
+  }
 
-  deleteMenu(){
-    this.menu.deleteMenu(this.status)
-    
+  deleteMenu(item: any) {
+    alert('Remove Menu Successfully..');
+    this.menu.deleteMenu(item);
+  }
+
+  UpdateMenuID(id: any) {
+    try {
+      this.menu
+        .UpdateMenuID(id)
+        .pipe(first())
+        .subscribe(
+          (data) => {
+            console.log(data);
+            alert('Update Menu Successfully..');
+            location.reload();
+          },
+          (err) => {
+            console.log(err);
+            alert('Update Menu fail!');
+          }
+        );
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   onClick() {
@@ -43,11 +63,8 @@ export class ManageComponent implements OnInit {
     }
   }
 
-  onRowClick(row: any){
+  onRowClick(row: any) {
     console.log(row.MID);
     this.status = row.MID;
   }
-
-
-
 }

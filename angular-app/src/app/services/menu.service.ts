@@ -50,13 +50,29 @@ export class MenuService {
   }
 
   deleteMenu(id: number) {
-    return this.http.delete('http://localhost:3000/api/deletemenu/'+id).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
-      error: (error) => {
-        console.error('There was an error!', error);
-      }
-    })
+    return this.http
+      .delete('http://localhost:3000/api/deletemenu/' + id)
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+        },
+      });
+  }
+
+  UpdateMenuID(id: any) {
+    //console.log(id);
+    return this.http
+      .put('http://localhost:3000/api/updatemenu/' + id, { quantity: 1 })
+      .pipe(
+        map((data) => {
+          if (data) {
+            console.log(data);
+          }
+          return data;
+        })
+      );
   }
 }
