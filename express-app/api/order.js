@@ -7,7 +7,7 @@ var Schema = require("mongoose").Schema;
 const orderSchema = Schema(
   {
     
-    menuordering: String,
+    menuordering: Array,
     sumprice: Number,
     time: String,
   },

@@ -14,7 +14,9 @@ import { OrderService } from 'src/app/services/order.service';
 export class CartComponent implements OnInit {
 
 
-  constructor(private cart: CartService,private order: OrderService) { }
+  constructor(private cart: CartService,private order: OrderService) { setInterval(() => {
+      this.date = new Date();
+    }, 1000);}
  
   
   data: orderModel = []
@@ -22,11 +24,7 @@ export class CartComponent implements OnInit {
 
   
   date!: Date;
-  constructor(private cart: CartService) {
-    setInterval(() => {
-      this.date = new Date();
-    }, 1000);
-  }
+
   money!: number;
   sum = 0;
 
@@ -49,7 +47,7 @@ export class CartComponent implements OnInit {
 
   onSubmit(money:number){
      let change = 0;
-     alert("Success")
+     
 
      
 
@@ -62,7 +60,7 @@ export class CartComponent implements OnInit {
     var jsonObject: any = JSON.parse(JSON.stringify(this.data));
     console.log(jsonObject);
 
-      this.order.addOrder(jsonObject);
+      this.order.addOrder(jsonObject[0]);
       this.order.submitStatus = true;
 
 
