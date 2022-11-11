@@ -20,9 +20,10 @@ import { ManageComponent } from './components/manage/manage.component';
 import { OrderComponent } from './components/order/order.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { ShoworderComponent } from './components/showorder/showorder.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, MainComponent, MenuComponent, HomeComponent, AddmenuComponent, EmployeeComponent, ShowDetailsComponent, CartComponent, ManageComponent, OrderComponent, ProfileComponent, SignupComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, MainComponent, MenuComponent, HomeComponent, AddmenuComponent, EmployeeComponent, ShowDetailsComponent, CartComponent, ManageComponent, OrderComponent, ProfileComponent, SignupComponent, ShoworderComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -66,13 +66,16 @@ export class OrderComponent implements OnInit {
     }
   }
 
-  onD() {
-    this.menus = [];
-  }
-
   ondelete(id: any) {
     this.order.deleteOrder(id);
-    alert("Delete Order Successfully!!")
+    alert('Delete Order Successfully!!');
     location.reload();
+  }
+
+  rev($event: boolean) {
+    console.log($event);
+    if ($event) {
+      this.menus = [];
+    }
   }
 }
