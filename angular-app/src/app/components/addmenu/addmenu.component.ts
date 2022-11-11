@@ -89,7 +89,36 @@ export class AddmenuComponent implements OnInit {
   //     }
   //   }
   // }
+  get name() {
+    return this.menuForm.get('name');
+  }
 
+  get price() {
+    return this.menuForm.get('price');
+  }
+  get type() {
+    return this.menuForm.get('type');
+  }
+
+  get MID() {
+    return this.menuForm.get('MID');
+  }
+  get category() {
+    return this.menuForm.get('category');
+  }
+
+  get quantity() {
+    return this.menuForm.get('quantity');
+  }
+  get file() {
+    return this.menuForm.get('file');
+  }
+  get img() {
+    return this.menuForm.get('img');
+  }
+  get detail() {
+    return this.menuForm.get('detail');
+  }
   resetForm() {
     this.menuForm.reset();
     this.previewLoaded = false;
