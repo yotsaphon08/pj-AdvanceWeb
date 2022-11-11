@@ -44,9 +44,9 @@ const findMenu = () => {
   });
 };
 
-const removeMenu = (mid) => {
+const removeMenu = (id) => {
   return new Promise((resolve, reject) => {
-    Menu.findOneAndRemove({'MID': mid}, function(err) {
+    Menu.findOneAndRemove({_id: id}, function(err) {
       if (err){
         reject(new Error("Cannot remove Menu"));
       }else{

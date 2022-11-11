@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { orderModel } from 'src/app/models/order';
-import {CartService} from 'src/app/services/cart.service'
+import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
-
 
 @Component({
   selector: 'app-cart',
@@ -12,24 +11,19 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-
-
-  constructor(private cart: CartService,private order: OrderService) { setInterval(() => {
+  constructor(private cart: CartService, private order: OrderService) {
+    setInterval(() => {
       this.date = new Date();
-    }, 1000);}
- 
-  
-  data: orderModel = []
+    }, 1000);
+  }
 
+  data: orderModel = [];
 
-  
   date!: Date;
 
-  money!: number;
+  money = new FormControl(0, [Validators.required]);
   sum = 0;
 
-
-  
   ngOnInit(): void {}
 
   getCart() {
@@ -44,28 +38,33 @@ export class CartComponent implements OnInit {
     return this.cart.getCounter();
   }
 
+  getChangePrice() {
+    var m = this.money.value;
+    var p = this.getSumPrice();
 
-  onSubmit(money:number){
-     let change = 0;
-     
+    return Number(m) - p;
+  }
 
-     
-
-     this.data.push({
+  onSubmit() {
+    var m = this.money.value;
+    if (
+      this.cart.getCartid().length === 0 ||
+      Number(m) <= this.cart.getSumPrice()
+    ) {
+      this.order.submitStatus = false;
+      alert('There was an error!');
+      return;
+    }
+    this.data.push({
       menuordering: this.cart.getCartid(),
       sumprice: this.cart.getSumPrice(),
-      time: new Date()})
-      console.log(this.data)
+      time: new Date(),
+    });
+    console.log(this.data);
 
     var jsonObject: any = JSON.parse(JSON.stringify(this.data));
     console.log(jsonObject);
-
-      this.order.addOrder(jsonObject[0]);
-      this.order.submitStatus = true;
-
-
- 
-    return (change = money - this.cart.getSumPrice());
-
+    this.order.addOrder(jsonObject[0]);
+    this.order.submitStatus = true;
   }
 }

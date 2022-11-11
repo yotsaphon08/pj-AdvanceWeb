@@ -11,18 +11,16 @@ import { Router } from '@angular/router';
 export class ManageComponent implements OnInit {
   ListMenu: any;
   status?: any;
- // menuComponent !: MenuComponent
-  constructor(
-    private router: Router,
-    private menu: MenuService,
-    
-  ) {}
+  // menuComponent !: MenuComponent
+  constructor(private router: Router, private menu: MenuService) {}
 
-  ngOnInit(): void { this.onLoading()}
+  ngOnInit(): void {
+    this.onLoading();
+  }
 
-  deleteMenu(){
-    this.menu.deleteMenu(this.status)
-    
+  deleteMenu(item: any) {
+    alert('Remove Menu Successfully..');
+    this.menu.deleteMenu(item);
   }
 
   onClick() {
@@ -43,11 +41,8 @@ export class ManageComponent implements OnInit {
     }
   }
 
-  onRowClick(row: any){
+  onRowClick(row: any) {
     console.log(row.MID);
     this.status = row.MID;
   }
-
-
-
 }

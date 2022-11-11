@@ -43,7 +43,8 @@ export class OrderService {
       next: data => {
           console.log(data)
           this.submitStatus = true;
-          alert("Success")
+          alert("Success");
+          location.reload();
       },
       error: error => {
           console.error('There was an error!', error);
