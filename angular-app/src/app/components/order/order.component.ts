@@ -5,21 +5,25 @@ import { MenuService } from 'src/app/services/menu.service';
 import { menuModel } from 'src/app/models/menu';
 import { range } from 'rxjs';
 
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css']
+  styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
-
   OrderList: any;
   menus: menuModel = [];
   listorder: any;
-  constructor(private order: OrderService, private router: Router,private menu: MenuService) { this.onLoading(); this.onLoading1() }
-
-  ngOnInit(): void {
+  constructor(
+    private order: OrderService,
+    private router: Router,
+    private menu: MenuService
+  ) {
+    this.onLoading();
+    this.onLoading1();
   }
+
+  ngOnInit(): void {}
 
   onLoading() {
     try {
@@ -50,25 +54,25 @@ export class OrderComponent implements OnInit {
     }
   }
 
-  orderIDdata(mo: any){
-  
-    console.log(this.listorder)
-    for(let i = 0;i < mo.length;i++){
-      console.log(mo[i])
-      for(let j = 0;j < this.listorder.length ;j++){
-        if(mo[i] === this.listorder[j]._id){
-            this.menus.push(this.listorder[j])
-          }
-      
+  orderIDdata(mo: any) {
+    console.log(this.listorder);
+    for (let i = 0; i < mo.length; i++) {
+      console.log(mo[i]);
+      for (let j = 0; j < this.listorder.length; j++) {
+        if (mo[i] === this.listorder[j]._id) {
+          this.menus.push(this.listorder[j]);
+        }
+      }
     }
-
   }
-  
 
-}
-ondelete(id: any){
-  this.order.deleteOrder(id)
+  onD() {
+    this.menus = [];
+  }
 
+  ondelete(id: any) {
+    this.order.deleteOrder(id);
+    alert("Delete Order Successfully!!")
+    location.reload();
+  }
 }
-}
-

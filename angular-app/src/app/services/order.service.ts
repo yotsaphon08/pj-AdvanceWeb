@@ -39,7 +39,7 @@ export class OrderService {
   }
 
   addOrder(data: any) {
-    return this.http.post<any>('http://localhost:3000/addorder/addorder', data).pipe(
+    return this.http.post<any>('http://localhost:3000/api/addorder', data).pipe(
       map((data) => {
         return data;
       })

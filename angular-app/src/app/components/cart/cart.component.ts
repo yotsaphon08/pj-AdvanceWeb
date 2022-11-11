@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-
 import { FormControl, Validators } from '@angular/forms';
 
 import { orderModel } from 'src/app/models/order';
@@ -15,19 +14,20 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-
-
-
-  constructor(private cart: CartService,private order: OrderService,private router: Router) { setInterval(() => {
-
+  date!: Date;
+  constructor(
+    private cart: CartService,
+    private order: OrderService,
+    private router: Router
+  ) {
     setInterval(() => {
-      this.date = new Date();
-    }, 1000);
+      setInterval(() => {
+        this.date = new Date();
+      }, 1000);
+    });
   }
 
   data: orderModel = [];
-
-  date!: Date;
 
   money = new FormControl(0, [Validators.required]);
   sum = 0;
@@ -52,12 +52,12 @@ export class CartComponent implements OnInit {
     return Number(m) - p;
   }
 
-
   onSubmit() {
     var m = this.money.value;
+    console.log(Number(m) < this.cart.getSumPrice());
     if (
       this.cart.getCartid().length === 0 ||
-      Number(m) <= this.cart.getSumPrice()
+      Number(m) < this.cart.getSumPrice()
     ) {
       this.order.submitStatus = false;
       alert('There was an error!');
@@ -73,14 +73,7 @@ export class CartComponent implements OnInit {
     var jsonObject: any = JSON.parse(JSON.stringify(this.data));
     console.log(jsonObject);
 
-
-      this.order.addOrder(jsonObject[0]);
-      this.order.submitStatus = true;
-
-      
- 
-    return (change = money - this.cart.getSumPrice());
-
-
+    this.order.addOrder(jsonObject[0]);
+    this.order.submitStatus = true;
   }
 }
