@@ -2,7 +2,7 @@ const expressFunction = require("express");
 const mongoose = require("mongoose");
 var expressApp = expressFunction();
 
-const url = "mongodb://localhost:27017/pj";
+const url = "mongodb://localhost:27017/cafe";
 const config = {
   autoIndex: true,
   useNewUrlParser: true,
@@ -41,9 +41,11 @@ expressApp.use((req, res, next) => {
 
 expressApp.use("/login", require("./auth/signup"));
 expressApp.use("/login", require("./auth/signin"));
-expressApp.use("/api", require("./api/menu"));
 expressApp.use("/api", require("./api/employee"));
+expressApp.use("/api", require("./api/menu"));
 expressApp.use("/api", require("./api/addmenu"));
+expressApp.use("/api", require("./api/order"));
+expressApp.use("/addorder", require("./api/order"));
 
 expressApp.listen(3000, function () {
   console.log("Listening on port 3000");

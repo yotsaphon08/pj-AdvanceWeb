@@ -49,7 +49,7 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item">Profile</a>
-      <a class="dropdown-item" (click)="onClick()">Employee</a>
+      <a class="dropdown-item" (click)="GoToemployee()">Employee</a>
       <a class="dropdown-item" (click)="logout()">Log out</a>
      
     </div>
@@ -78,10 +78,10 @@
                   </thead>
                   <tbody>
                       <tr *ngFor="let item of cart; index as i">
-                          <td scope="row">{{item.id}}</td>
+                          <td scope="row">{{item.MID}}</td>
                           <td>{{item.name}}</td>
                           <td>{{item.price}}</td>
-                          <td>{{item.getCounter()}</td>
+                          <td>{{item.quantity}}</td>
                       </tr>
                   </tbody>
               </table>
