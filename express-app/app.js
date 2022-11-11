@@ -46,7 +46,8 @@ expressApp.use("/api", require("./api/menu"));
 expressApp.use("/api", require("./api/addmenu"));
 
 expressApp.use("/api", require("./api/order"));
-expressApp.use("/addorder", require("./api/order"));
+expressApp.use("/api", require("./api/order"));
+expressApp.use("/api", require("./api/menu"));
 
 expressApp.use("/deletemenu", require("./api/menu"));
 

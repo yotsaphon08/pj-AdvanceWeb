@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 // import { MenuComponent } from '../menu/menu.component';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-manage',
@@ -21,6 +22,27 @@ export class ManageComponent implements OnInit {
   deleteMenu(item: any) {
     alert('Remove Menu Successfully..');
     this.menu.deleteMenu(item);
+  }
+
+  UpdateMenuID(id: any) {
+    try {
+      this.menu
+        .UpdateMenuID(id)
+        .pipe(first())
+        .subscribe(
+          (data) => {
+            console.log(data);
+            alert('Update Menu Successfully..');
+            location.reload();
+          },
+          (err) => {
+            console.log(err);
+            alert('Update Menu fail!');
+          }
+        );
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   onClick() {
