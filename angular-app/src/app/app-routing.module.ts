@@ -10,7 +10,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { ManageComponent } from './components/manage/manage.component';
 import { OrderComponent } from './components/order/order.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import { StampsComponent } from './components/stamps/stamps.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'manage', component: ManageComponent },
   { path: 'order', component: OrderComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'stamps', component: StampsComponent },
   { path: '**', redirectTo: '' },
 ];
 

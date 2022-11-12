@@ -21,9 +21,10 @@ import { OrderComponent } from './components/order/order.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ShoworderComponent } from './components/showorder/showorder.component';
+import { StampsComponent } from './components/stamps/stamps.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, MainComponent, MenuComponent, HomeComponent, AddmenuComponent, EmployeeComponent, ShowDetailsComponent, CartComponent, ManageComponent, OrderComponent, ProfileComponent, SignupComponent, ShoworderComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, MainComponent, MenuComponent, HomeComponent, AddmenuComponent, EmployeeComponent, ShowDetailsComponent, CartComponent, ManageComponent, OrderComponent, ProfileComponent, SignupComponent, ShoworderComponent, StampsComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

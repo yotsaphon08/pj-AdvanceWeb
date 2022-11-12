@@ -48,6 +48,7 @@ expressApp.use("/api", require("./api/addmenu"));
 expressApp.use("/api", require("./api/order"));
 expressApp.use("/api", require("./api/order"));
 expressApp.use("/api", require("./api/menu"));
+expressApp.use("/api", require("./api/stamps"));
 
 expressApp.use("/deletemenu", require("./api/menu"));
 expressApp.use("/deleteorder", require("./api/order"));
