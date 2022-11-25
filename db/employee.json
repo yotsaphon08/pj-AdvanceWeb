@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "6349579ed80fe25bcf41f626"
+  },
+  "name": "Butsakorn Kharom",
+  "email": "tonphaii@gmail.com",
+  "password": "$2a$10$AQPbPpdi09akeXrzzXiM5e8OOSVd92z3T4qBVoZ//y.3tFZ.nvScC",
+  "gender": "Female",
+  "tel": "0652803448",
+  "EmpID": "E10001"
+},{
+  "_id": {
+    "$oid": "636d5fd1a1b2dc81c285ecc2"
+  },
+  "name": "AWESOME08 CPE",
+  "email": "awesome08@gmail.com",
+  "password": "$2a$10$TXHddOBBFC72V.d1Z8Ih8usHwl1Qr2ApOgtQnp18cndIlMuiPWFS6",
+  "EmpID": "E10002",
+  "gender": "Male",
+  "tel": "0828753990"
+}]
